@@ -1,0 +1,11 @@
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+li {
+    cursor: pointer;
+    width: 60;
+    height: 40;
+}

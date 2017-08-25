@@ -1,19 +1,18 @@
 /**
+Assumptions about rep object interface
 
 {
-    reps: {
-        id: ""
-        name: "",
-        team: "",
-        review: "",
-        change: 1,
-        skills : {
-            coreSkills: {
+    id: ""
+    name: "",
+    team: "",
+    review: "",
+    change: 1,
+    skills : {
+        coreSkills: {
 
-            },
-            custom: {
+        },
+        custom: {
 
-            }
         }
     }
 }
@@ -81,7 +80,6 @@ export default class ScoreCard extends Component {
 
     sort (cb) {
         const sortedReps = this.state.reps.sort(cb);
-        console.log('sort')
         this.setState({ reps: sortedReps });
     }
 
@@ -112,78 +110,50 @@ export default class ScoreCard extends Component {
 class TopRow extends Component {
     render () {
         return (
-            <ul>
+            <ul className="top-row">
                 <SortButton
                     name="Rep"
-                    sortAsc={() => this.props.sort((a, b) => { 
-                        return a.name.charCodeAt(0) - b.name.charCodeAt(0)
-                    })}
-                    sortDesc={() => this.props.sort((a, b) => { 
-                        return b.name.charCodeAt(0) - a.name.charCodeAt(0)
-                    })}
+                    sortAsc={() => this.props.sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0))}
+                    sortDesc={() => this.props.sort((a, b) => b.name.charCodeAt(0) - a.name.charCodeAt(0))}
                 />
                 <SortButton
                     name="Team"
-                    sortAsc={() => this.props.sort((a, b) => { 
-                        return a.team.charCodeAt(0) - b.name.charCodeAt(0)
-                    })}
-                    sortDesc={() => this.props.sort((a, b) => { 
-                        return b.team.charCodeAt(0) - a.name.charCodeAt(0)
-                    })}
+                    sortAsc={() => this.props.sort((a, b) => a.team.charCodeAt(0) - b.name.charCodeAt(0))}
+                    sortDesc={() => this.props.sort((a, b) => b.team.charCodeAt(0) - a.name.charCodeAt(0))}
                 />
                 <SortButton
                     name="Review"
-                    sortAsc={() => this.props.sort((a, b) => { 
-                        return a.review.charCodeAt(0) - b.review.charCodeAt(0)
-                    })}
-                    sortDesc={() => this.props.sort((a, b) => { 
-                        return b.review.charCodeAt(0) - a.review.charCodeAt(0)
-                    })}
+                    sortAsc={() => this.props.sort((a, b) => a.review.charCodeAt(0) - b.review.charCodeAt(0))}
+                    sortDesc={() => this.props.sort((a, b) => b.review.charCodeAt(0) - a.review.charCodeAt(0))}
                 />
                 <SortButton
                     name="1-Week-Change"
-                    sortAsc={() => this.props.sort((a, b) => { 
-                        return a.change - b.change
-                    })}
-                    sortDesc={() => this.props.sort((a, b) => { 
-                        return b.change - a.change
-                    })}
+                    sortAsc={() => this.props.sort((a, b) => a.change - b.change)}
+                    sortDesc={() => this.props.sort((a, b) => b.change - a.change)}
                 />
                 <SortButton
+                    className="skills-top-row"
                     name="Probing Questions"
-                    sortAsc={() => this.props.sort((a, b) => { 
-                        return a.skills.coreSkills.probingQuestions - b.skills.coreSkills.probingQuestions
-                    })}
-                    sortDesc={() => this.props.sort((a, b) => { 
-                        return b.skills.coreSkills.probingQuestions - a.skills.coreSkills.probingQuestions
-                    })}
+                    sortAsc={() => this.props.sort((a, b) => a.skills.coreSkills.probingQuestions - b.skills.coreSkills.probingQuestions)}
+                    sortDesc={() => this.props.sort((a, b) => b.skills.coreSkills.probingQuestions - a.skills.coreSkills.probingQuestions)}
                 />
                 <SortButton
+                    className="skills-top-row"
                     name="Benefits"
-                    sortAsc={() => this.props.sort((a, b) => { 
-                        return a.skills.coreSkills.benefits - b.skills.coreSkills.benefits
-                    })}
-                    sortDesc={() => this.props.sort((a, b) => { 
-                        return b.skills.coreSkills.benefits - a.skills.coreSkills.benefits
-                    })}
+                    sortAsc={() => this.props.sort((a, b) => a.skills.coreSkills.benefits - b.skills.coreSkills.benefits)}
+                    sortDesc={() => this.props.sort((a, b) => b.skills.coreSkills.benefits - a.skills.coreSkills.benefits)}
                 />
                 <SortButton
+                    className="skills-top-row"
                     name="CloseAttempts"
-                    sortAsc={() => this.props.sort((a, b) => { 
-                        return a.skills.coreSkills.closeAttempts - b.skills.coreSkills.closeAttempts
-                    })}
-                    sortDesc={() => this.props.sort((a, b) => { 
-                        return b.skills.coreSkills.closeAttempts - a.skills.coreSkills.closeAttempts
-                    })}
+                    sortAsc={() => this.props.sort((a, b) => a.skills.coreSkills.closeAttempts - b.skills.coreSkills.closeAttempts)}
+                    sortDesc={() => this.props.sort((a, b) => b.skills.coreSkills.closeAttempts - a.skills.coreSkills.closeAttempts)}
                 />
                 <SortButton
+                    className="skills-top-row"
                     name="UpsellAttempts"
-                    sortAsc={() => this.props.sort((a, b) => { 
-                        return a.skills.coreSkills.upsellAttempts - b.skills.coreSkills.upsellAttempts
-                    })}
-                    sortDesc={() => this.props.sort((a, b) => { 
-                        return b.skills.coreSkills.upsellAttempts - a.skills.coreSkills.upsellAttempts
-                    })}
+                    sortAsc={() => this.props.sort((a, b) => a.skills.coreSkills.upsellAttempts - b.skills.coreSkills.upsellAttempts)}
+                    sortDesc={() => this.props.sort((a, b) => b.skills.coreSkills.upsellAttempts - a.skills.coreSkills.upsellAttempts)}
                 />
             </ul>
         );
@@ -210,7 +180,9 @@ class SortButton extends Component {
     }
     render () {
         return(
-            <li onClick={this.onClick.bind(this)}>
+            <li 
+                className={this.props.className || ""}
+                onClick={this.onClick.bind(this)}>
                 {this.props.name}
             </li>
         );
@@ -218,34 +190,73 @@ class SortButton extends Component {
 }
 
 class Row extends Component {
+    declareStyles (review, change, coreSkills) {
+        
+        if (review === "Needs Work") {
+            this.reviewStyle = 'red-snack';    
+        } else if (review === "On Track") {
+            this.reviewStyle = 'green-snack';
+        }
+
+        if (change > 0) {
+            this.changeStyle = 'green-snack';
+        } else {
+            this.changeStyle = 'red-snack';
+        }
+
+        for (let skill in coreSkills) {
+            let value = coreSkills[skill];
+            
+            if (value < 25) {
+                this[`${skill}Style`] = 'red-box';
+            } else if (value < 45) {
+                this[`${skill}Style`] = 'redish-box';
+            } else if (value < 51) {
+                this[`${skill}Style`] = 'neutral-box';
+            } else if (value < 60) {
+                this[`${skill}Style`] = 'white-box';
+            } else if (value < 70) {
+                this[`${skill}Style`] = 'greenish-box';
+            } else {
+                this[`${skill}Style`] = 'green-box';
+            }
+        }
+    }
+
     render () {
-        const {name, team, review, change, skills} = this.props.rep
+        const {name, team, review, change, skills} = this.props.rep;
         const coreSkills = skills.coreSkills;
 
+        this.declareStyles(review, change, coreSkills);
+
         return (
-            <ul>
+            <ul className="row"> 
                 <li>
-                    {name}
+                    <b>{name}</b>
                 </li>
-                <li>
+                <li className="team">
                     {team}
                 </li>
-                <li>
-                    {review}
+                <li className={this.reviewStyle}>
+                    <div>
+                        {review}
+                    </div>
                 </li>
-                <li>
-                    {change}
+                <li className={this.changeStyle}>
+                    <div>
+                        {change}%
+                    </div>
                 </li>
-                <li>
+                <li className={this.probingQuestionsStyle}>
                     {coreSkills.probingQuestions}
                 </li>
-                <li>
+                <li className={this.benefitsStyle}>
                     {coreSkills.benefits}
                 </li>
-                <li>
+                <li className={this.closeAttemptsStyle}>
                     {coreSkills.closeAttempts}
                 </li>
-                <li>
+                <li className={this.upsellAttemptsStyle}>
                     {coreSkills.upsellAttempts}
                 </li>
             </ul>

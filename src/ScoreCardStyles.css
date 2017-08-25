@@ -1,11 +1,67 @@
+body {
+    background: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
 ul {
     display: flex;
     flex-direction: row;
     list-style-type: none;
 }
 
-li {
+.row li {
     cursor: pointer;
-    width: 60;
-    height: 40;
+    min-width: 150px;
+    height: 40px;
+}
+
+.top-row li {
+    cursor: pointer;
+    min-width: 150px;
+    height: 40px; 
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.skills-top-row {
+    font-size: 12px;
+    font-weight: bold;
+    color: #DCDCDC;
+}
+
+.red-snack div {
+    background: #c62828;
+}
+
+.green-snack div {
+    background: #66bb6a;
+}
+
+.red-box {
+    background: #ff1744;
+    text-align: center; 
+}
+
+.neutral-box {
+
+}
+
+.redish-box {
+    background: #ffcdd2;
+    text-align: center; 
+}
+
+.white-box {
+    background: #fff;
+    text-align: center; 
+}
+
+.greenish-box {
+    background: #a5d6a7;
+    text-align: center; 
+}
+
+.green-box {
+    background: #66bb6a;
+    text-align: center; 
 }
